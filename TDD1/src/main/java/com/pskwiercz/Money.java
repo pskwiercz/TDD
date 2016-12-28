@@ -3,7 +3,7 @@ package com.pskwiercz;
 /**
  * Created by pskwierc on 23/12/2016.
  */
-public class Money {
+public class Money implements Expression {
 
     protected int amount;
     protected String currency;
@@ -15,6 +15,14 @@ public class Money {
 
     Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
+    }
+
+    Expression plus(Money add) {
+        return new Sum(this, add);
+    }
+
+    public Money reduce(String to) {
+        return this;
     }
 
     static Money dollar(int amount) {
