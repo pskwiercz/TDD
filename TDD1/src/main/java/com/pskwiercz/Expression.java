@@ -7,6 +7,8 @@ public interface Expression {
 
     Expression plus(Expression add);
 
+    Expression times(int multipler);
+
     Money reduce(Bank bank, String to);
 }
 
